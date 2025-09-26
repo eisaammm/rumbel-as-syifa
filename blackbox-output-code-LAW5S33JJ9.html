@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bimbel As Syifa - Belajar Seru, Pintar Maksimal! 🎉</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            box-shadow: 0 4px 20px rgba(255,107,107,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.1) 10px, rgba(255,255,255,0.1) 20px);
+            animation: sparkle 4s linear infinite;
+        }
+        @keyframes sparkle {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        header h1 {
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        header p {
+            font-size: 1.3em;
+            margin-top: 0.5rem;
+            animation: fadeIn 1.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        nav {
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(255,107,107,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav li {
+            margin: 0 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1.1em;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: background 0.3s ease, transform 0.3s ease;
+            display: block;
+            cursor: pointer;
+        }
+        nav a:hover, nav a.active {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.05);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .section {
+            background: white;
+            margin: 2rem 0;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(255,107,107,0.2);
+            text-align: center;
+            border: 3px solid #ffeaa7;
+            animation: slideInUp 1s ease-out;
+            scroll-margin-top: 80px; /* Offset untuk sticky nav agar section tidak tertutup nav */
+        }
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .section h2 {
+            color: #ff6b6b;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        .hero-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255,107,107,0.3);
+            margin: 2rem auto;
+            display: block;
+            animation: fadeIn 1.5s ease-in;
+            border: 4px solid #ffeaa7;
+            transition: transform 0.3s ease;
+        }
+        .hero-image:hover {
+            transform: scale(1.02);
+        }
+        .method {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 2rem 0;
+        }
+        .method-card {
+            flex: 1 1 300px;
+            margin: 1rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #a8e6cf, #ffd93d);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px dashed #ff6b6b;
+            position: relative;
+            overflow: hidden;
+        }
+        .method-card::before {
+            content: '✨';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 2em;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .method-card:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 10px 30px rgba(255,107,107,0.4);
+        }
+        .method-card img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border: 3px solid #4ecdc4;
+        }
+        .method-card h3 {
+            color: #e17055;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7em;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .reasons {
+            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+            text-align: left;
+            border-color: #ffd93d;
+        }
+        .reasons ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .reasons li {
+            background: white;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            font-size: 1.2em;
+            font-weight: 600;
+            border-left: 5px solid #ff6b6b;
+            animation: fadeInLeft 0.5s ease-out forwards;
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        .reasons li:nth-child(1) { animation-delay: 0.1s; }
+        .reasons li:nth-child(2) { animation-delay: 0.2s; }
+        .reasons li:nth-child(3) { animation-delay: 0.3s; }
+        .reasons li:nth-child(4) { animation-delay: 0.4s; }
+        .reasons li:nth-child(5) { animation-delay: 0.5s; }
+        @keyframes fadeInLeft {
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .contact {
+            background: linear-gradient(135deg, #4ecdc4, #44bd32, #feca57);
+            color: white;
+            text-align: center;
+            border-color: #a8e6cf;
+        }
+        .contact h2 {
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .contact-info {
+            font-size: 1.3em;
+            margin: 1rem 0;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .instagram-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #e4405f, #f77737);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 30px;
+            margin-top: 1rem;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(228,64,95,0.4);
+        }
+        .instagram-link:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(228,64,95,0.6);
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            color: white;
+            margin-top: 2rem;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav li {
+                margin: 0.5rem 0;
+            }
+            .method {
+                flex-direction: column;
+            }
+            header h1 {
+                font-size: 2.2em;
+            }
+            .section {
+                padding: 1.5rem;
+            }
+            .hero-image {
+                max-width: 100%;
+            }
+        }
+    </style>
+    <script>
+        // JavaScript sederhana untuk menambahkan class 'active' pada menu saat section aktif (opsional, untuk visual feedback)
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Bimbel As Syifa 🎈</h1>
+        <p>Rumah Belajar yang Menginspirasi Generasi Hebat dengan Metode Inovatif & Seru! 🌟</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#metode">Metode Pembelajaran</a></li>
+            <li><a href="#reasons">Mengapa As Syifa?</a></li>
+            <li><a href="#contact">Hubungi Kami</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="home" class="section">
+            <h2>Selamat Datang di Bimbel As Syifa! 😊</h2>
+            <p>Kami adalah rumah belajar yang didedikasikan untuk membangun fondasi pendidikan yang kuat bagi anak-anak Anda. Dengan pendekatan unik yang menyenangkan dan efektif, kami memastikan setiap siswa mencapai potensi maksimalnya. Mari wujudkan mimpi pendidikan bersama kami! 🚀</p>
+            <img src="https://img.freepik.com/vektor-premium/ilustrasi-vektor-bersama-gadis-kecil-kaukasia-dan-afrika-kartun-lucu-belajar-bersama_375605-403.jpg" alt="Anak-anak animasi belajar bersama dengan senyuman" class="hero-image">
+        </section>
+
+        <section id="metode" class="section">
+            <h2>Metode Pembelajaran Kami 🎯</h2>
+            <p>Kami menerapkan metode inovatif yang dirancang khusus untuk membuat belajar menjadi pengalaman menyenangkan dan mudah dipahami. Yuk, coba yuk! 😉</p>
+            <div class="method">
+                <div class="method-card">
+                    <img src="https://prismakalkulatortangan.id/themes/lte/assets/img/logo.png" alt="Metode Prisma Kalkulator Tangan">
+                    <h3>Prisma Kalkulator<br>Tangan 🧮</h3>
+                    <p>Metode ini menggunakan alat bantu sederhana seperti prisma dan kalkulator tangan untuk memvisualisasikan konsep matematika secara interaktif, serta belajar hitung cepat dengan teknik mental arithmetic yang menyenangkan dan efektif. Bayangkan anak Anda dengan percaya diri menyelesaikan soal rumit dalam hitungan detik, sambil menikmati proses belajar yang penuh keajaiban visual! Konsep abstrak menjadi nyata, kecepatan hitung melonjak, dan rasa percaya diri tumbuh—semua melalui tangan mungil mereka yang pintar. Siap ciptakan matematikawan cilik di rumah? 😄</p>
+                </div>
+                <div class="method-card">
+                    <img src="https://www.ahe.education/images/static/ahe1.png" alt="Metode AHE - Anak Hebat">
+                    <h3>Membaca dengan Metode AHE (Anak Hebat) 📖</h3>
+                    <p>AHE adalah program membaca holistik yang seru, di mana anak belajar tanpa mengeja huruf satu per satu secara membosankan—sebaliknya, melalui cerita interaktif, permainan visual, dan aktivitas kreatif yang membuat kata-kata 'hidup' seperti petualangan ajaib! Teknik fonetik digabungkan dengan pendekatan alami, sehingga anak langsung merasakan kegembiraan membaca buku favorit tanpa tekanan hafalan. Setiap sesi penuh tawa dan penemuan, membangun kebiasaan literasi yang kuat sambil menumbuhkan imajinasi liar. Jadikan anak Anda 'Anak Hebat' yang haus akan cerita dan percaya diri berliterasi—siapkah untuk dunia penuh buku yang menyenangkan? 🌈</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="reasons" class="section reasons">
+            <h2>Mengapa Harus Belajar di Rumah Belajar As Syifa? 💖</h2>
+            <p>Selain metode pembelajaran inovatif kami, ada banyak alasan mengapa As Syifa adalah pilihan terbaik untuk pendidikan anak Anda. Lihat yuk! 👀</p>
+            <ul>
+                <li><strong>Guru Berpengalaman & Ramah: 👩‍🏫</strong> Tim pengajar kami terdiri dari profesional yang penuh kasih, siap mendampingi setiap langkah belajar anak Anda dengan sabar dan motivasi tinggi.</li>
+                <li><strong>Lingkungan Nyaman & Aman: 🏠</strong> Berlokasi di rumah belajar yang cozy, seperti belajar di rumah sendiri, bebas dari gangguan dan penuh dukungan positif.</li>
+                <li><strong>Hasil Terbukti: ⭐</strong> Ribuan siswa telah sukses meningkatkan nilai dan kepercayaan diri mereka berkat pendekatan personal kami.</li>
+                <li><strong>Program Fleksibel: ⏰</strong> Kelas disesuaikan dengan jadwal anak, termasuk les privat atau kelompok kecil untuk hasil optimal.</li>
+                <li><strong>Fokus pada Karakter: 🌟</strong> Tidak hanya akademik, kami bangun juga nilai-nilai syifa (penyembuhan) seperti disiplin, kerjasama, dan semangat belajar seumur hidup.</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="section contact">
+            <h2>Hubungi Kami Sekarang! 📞</h2>
+            <p class="contact-info">Jl. Ciawitali Gg. Sukabakti 1B RT 01/RW 10<br>Kecamatan Cimahi Utara, Jawa Barat<br>Kota Cimahi 🗺️</p>
+            <p class="contact-info">Telepon: 0812-2377-8961 ☎️</p>
+            
